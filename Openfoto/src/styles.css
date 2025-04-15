@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+.jm-regular {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.jm-regular-mini {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
++ font-size: 0.8 rem;
+}
+
+
+.ns-regular {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ns-light {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ns-bold {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.jm-bold {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}

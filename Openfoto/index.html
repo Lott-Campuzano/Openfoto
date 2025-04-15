@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="./src/stylesTW.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <title></title>
+</head>
+<body class="bg-zinc-900">
+<header>
+
+    <nav class="bg-zinc-900/60 backdrop-blur-sm py-2.5 z-50 fixed -top-1 right-0 left-0">
+        <!-- Contenedor Principal -->
+        <div class="flex items-center justify-between max-w-screen-xl px-4 mx-auto">
+            <!-- Logo -->
+            <a class="flex items-center" href="./index.html">
+                <span class="text-xl font-semibold whitespace-nowrap text-zinc-50 ns-bold">Openfoto</span>
+            </a>
+
+            <!-- Menú de escritorio (visible en pantallas grandes) -->
+            <div class="hidden lg:flex lg:space-x-8">
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./collections.html">Colecciones</a>
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular"
+                   href="./creators.html">Creadores</a>
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+            </div>
+
+            <!-- Botón para menú móvil (visible solo en pantallas pequeñas) -->
+            <button aria-controls="mobile-menu" aria-expanded="false"
+                    class="lg:hidden inline-flex items-center p-2 text-sm text-zinc-400 hover:text-amber-500 rounded-lg focus:ring-2 focus:ring-zinc-600"
+                    id="menu-toggle">
+                <!-- Icono de hamburguesa -->
+                <svg class="w-6 h-6" fill="none" id="menu-icon" stroke="currentColor" stroke-width="1.5"
+                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <!-- Icono de cerrar -->
+                <svg class="hidden w-6 h-6" fill="none" id="close-icon" stroke="currentColor"
+                     stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menú móvil (visible en pantallas pequeñas) -->
+        <div class=" hidden flex flex-col items-start px-4 py-4" id="mobile-menu">
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular"
+               href="./collections.html">Colecciones</a>
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./creators.html">Creadores</a>
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section>
+
+    </section>
+    <section class="px-6 py-30 bg-w sm:py-15 lg:py-30 relative">
+        <div class="container mx-auto">
+            <!-- Título principal -->
+            <h2 class="text-3xl ns-bold text-zinc-50 sm:text-3xl lg:text-5xl md:block">
+                Donde muchos ven lugares, nosotros vemos
+                <span class="block w-full ns-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-amber-600 to-red-700 lg:inline">
+                historias.
+            </span>
+            </h2>
+            <br>
+            <br>
+            <div class="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+                <!-- Primera Tarjeta -->
+                <button class="relative" onclick="openModal('modal1')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">Calles con historia</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Guillermo Aguirre</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Hay tantos lugares que quisiera volver a visitar, no por su belleza sino por lo
+                                        que cuentan
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20240801_142239.jpg">
+                    </div>
+                </button>
+
+                <!-- Segunda Tarjeta -->
+                <button class="relative" onclick="openModal('modal2')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">10 días</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Diana García</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Me inspire de Fred Again.., si él pudo hacer un álbum en 10 días. ¿Por qué yo no
+                                        una colección?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20250406_175626.jpg">
+                    </div>
+                </button>
+
+                <!-- Tercera Tarjeta -->
+                <button class="relative" onclick="openModal('modal3')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-zinc-50 text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">No creí que existieras</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Lott Campuzano</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Mi amor por la ciencia no me permitía creer, pero la ciencia sabía algo que yo
+                                        no.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20250405_182436 (2).jpg">
+                    </div>
+                </button>
+
+                <!-- Cuarta Tarjeta -->
+                <button class="relative" onclick="openModal('modal4')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">No te olvides de mí</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Alejandra Avendaño</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Estas no son solo fotografías, son la historia de quien no pudo contarla
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20240920_115804.jpg">
+                    </div>
+                </button>
+
+                <!-- Primera Tarjeta -->
+                <button class="relative" onclick="openModal('modal5')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">Calles con historia</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Guillermo Aguirre</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Hay tantos lugares que quisiera volver a visitar, no por su belleza sino por lo
+                                        que cuentan
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20240801_142239.jpg">
+                    </div>
+                </button>
+
+                <!-- Segunda Tarjeta -->
+                <button class="relative" onclick="openModal('modal6')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">10 días</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Diana García</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Me inspire de Fred Again.., si él pudo hacer un álbum en 10 días. ¿Por qué yo no
+                                        una colección?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20250406_175626.jpg">
+                    </div>
+                </button>
+
+                <!-- Tercera Tarjeta -->
+                <button class="relative" onclick="openModal('modal7')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-zinc-50 text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">No creí que existieras</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Lott Campuzano</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Mi amor por la ciencia no me permitía creer, pero la ciencia sabía algo que yo
+                                        no.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20250405_182436 (2).jpg">
+                    </div>
+                </button>
+
+                <!-- Cuarta Tarjeta -->
+                <button class="relative" onclick="openModal('modal8')">
+                    <div class="h-full relative overflow-clip group rounded-lg">
+                        <div class="absolute bottom-0 lg:group-hover:top-0 left-0 w-full h-full lg:group-hover:bg-zinc-700/60 lg:group-hover:backdrop-blur-sm transition-all ease-in-out duration-500">
+                            <div class="w-full h-full p-2 relative">
+                                <div class="absolute bottom-0 lg:group-hover:bottom-24 text-white text-left transition-all ease-in-out duration-500">
+                                    <h2 class="text-xl ns-bold text-zinc-50 mt-2 mb-0 pb-1">No te olvides de mí</h2>
+                                    <p class="hidden lg:text-sm lg:block ns-light">Alejandra Avendaño</p>
+                                    <br>
+                                    <p class="hidden lg:group-hover:block text-sm jm-regular transition-all ease-in-out duration-500">
+                                        Estas no son solo fotografías, son la historia de quien no pudo contarla
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
+                             src="./src/img/20240920_115804.jpg">
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50 overflow-y-auto py-10"
+             id="modal1">
+            <div class="bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal1')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal2">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal2')">&times;
+                </button>
+
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal3">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal3')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 4 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal4">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal4')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal5">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal5')">&times;
+                </button>
+
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal6">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal6')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal7">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal7')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 4 -->
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal8">
+            <div class="  bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal8')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-3 bg-linear-to-t from-zinc-400 via-zinc-600 to-zinc-900">
+        <h1 class="px-6 text-3xl ns-bold text-zinc-50 text-2xl sm:text-3xl lg:text-5xl text-center pb-20">
+            Conoce algunas de nuestras historias
+        </h1>
+        <div class="h-full">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <!-- Primer bloque -->
+                <div class="mb-4 flex items-center justify-between gap-4 sm:mb-6 md:mb-8">
+                    <div class="flex items-center gap-8">
+                        <h2 class="text-2xl ns-bold text-zinc-50 lg:text-3xl">Un día a la vez <span class="ns-light">\ Guillermo AC</span>
+                        </h2>
+                        <p class="hidden max-w-screen-sm jm-regular-mini text-zinc-50 md:block">
+                            Todos los días cruzamos las mismas calles y los mismos lugares, irónicamente decimos que
+                            "todo ha cambiado".
+                        </p>
+                    </div>
+
+                    <button class="inline-block rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-center jm-regular-mini text-zinc-300 outline-none transition duration-150 ease-in-out hover:shadow-[0_0_30px_#e4e4e7] hover:text-zinc-100 hover:ring-1 focus:ring-zinc-100 md:px-8 md:py-3 md:text-base"
+                            onclick="openModal('modal9')">
+                        Ver
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+                    <!-- Imágenes del primer bloque -->
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Martin Sanchez"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Magicle"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Magicle"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Martin Sanchez"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal9">
+            <div class="bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal9')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-3 bg-linear-to-t from-amber-900 via-amber-600 to-zinc-400">
+        <div class="h-full">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <!-- Primer bloque -->
+                <div class="mb-4 flex items-center justify-between gap-4 sm:mb-6 md:mb-8  pt-10">
+                    <div class="flex items-center gap-8">
+                        <h2 class="text-2xl ns-bold text-zinc- lg:text-3xl">Un día a la vez <span class="ns-light">\ Guillermo AC</span>
+                        </h2>
+                        <p class="hidden max-w-screen-sm jm-regular-mini text-zinc-800 md:block">
+                            Todos los días cruzamos las mismas calles y los mismos lugares, irónicamente decimos que
+                            "todo ha cambiado".
+                        </p>
+                    </div>
+
+                    <button class="inline-block rounded-lg border border-zinc-700 bg-transparent px-4 py-2 text-center jm-regular-mini text-zinc-700 outline-none transition duration-150 ease-in-out hover:shadow-[0_0_30px_#71717a] hover:text-zinc-600 hover:ring-1 focus:ring-zinc-100 md:px-8 md:py-3 md:text-base"
+                            onclick="openModal('modal9')">
+                        Ver
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+                    <!-- Imágenes del primer bloque -->
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Martin Sanchez"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Magicle"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Magicle"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80 shadow-zinc-800">
+                        <img alt="Photo by Martin Sanchez"
+                             class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy"
+                             src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50" id="modal10">
+            <div class="bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50">
+                <!-- Botón de cerrar -->
+                <button class="text-zinc-50 hover:text-white float-right text-xl font-bold"
+                        onclick="closeModal('modal10')">&times;
+                </button>
+
+                <!-- Título y descripción -->
+                <h2 class="text-zinc-50 text-2xl ns-bold mb-4">Calles con historia</h2>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Autor:</strong> Guillermo Aguirre</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Obra:</strong> Calles con historia</p>
+                <p class="jm-regular text-zinc-50 mb-4"><strong>Narrativa:</strong> Esta colección captura la esencia de
+                    calles llenas de historia. Cada imagen refleja no solo un ambiente único, sino los fragmentos de
+                    vida que transitan por esos lugares. Se trata de un recorrido por rincones icónicos y desconocidos,
+                    inmortalizando los recuerdos que esas calles guardan en sus adoquines y fachadas.</p>
+                <h3 class="text-zinc-50 text-xl ns-bold mb-2">Contacto del autor:</h3>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Email:</strong> guillermo.aguirre@example.com</p>
+                <p class="jm-regular text-zinc-50 mb-2"><strong>Sitio web:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500" href="https://guillermoaguirrefoto.com"
+                        target="_blank">guillermoaguirrefoto.com</a></p>
+                <p class="jm-regular text-zinc-50"><strong>Redes sociales:</strong> <a
+                        class="text-amber-600 underline hover:text-amber-500"
+                        href="https://instagram.com/guillermoaguirre" target="_blank">@guillermoaguirre</a></p>
+                <hr class="my-4 border-zinc-700">
+
+                <!-- Información de contacto -->
+
+
+                <!-- Contenedor de Galería -->
+                <div class="p-0 rounded-lg shadow-lg pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Imagen 1 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 1"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="rgroup relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 2"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                            <img alt="Calles con historia - Imagen 3"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                            <img alt="Calles con historia - Imagen 4"
+                                 class="h-full w-full object-cover rounded-lg shadow-md"
+                                 src="./src/img/20240801_142239.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+<footer class="bg-zinc-800 py-6 sm:py-12 text-center text-zinc-50">
+    <p class="jm-regular">Hecho con ❤️ por @Lott_Campuzano.</p>
+</footer>
+
+<script>
+    // Seleccionar el botón y el menú
+    const toggleButton = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Escuchar evento de clic en el botón
+    toggleButton.addEventListener('click', () => {
+        // Alternar la clase "hidden" al menú móvil
+        mobileMenu.classList.toggle('hidden');
+
+        // Actualizar el atributo "aria-expanded" para accesibilidad
+        const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        toggleButton.setAttribute('aria-expanded', !isExpanded);
+    });
+</script>
+
+<!-- Script para abrir/cerrar modales -->
+<script>
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+    }
+</script>
+</body>
+</html>
