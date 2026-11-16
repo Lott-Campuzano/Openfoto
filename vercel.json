@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/panel.html",
+      "destination": "/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/panel",
+      "destination": "/index.html",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/panel.html",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
+}

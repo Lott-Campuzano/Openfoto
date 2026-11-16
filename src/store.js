@@ -16,9 +16,26 @@ const ALMACEN = (() => {
     usados: "openfoto:tokens-usados"
   };
 
+  /* Si localStorage no está disponible (algunos navegadores al abrir
+     los archivos como file://), se usa un respaldo en memoria: el panel
+     sigue funcionando durante la sesión aunque no persista al cerrar. */
+  const memoria = {};
+
+  function disponible() {
+    try {
+      localStorage.setItem("openfoto:prueba", "1");
+      localStorage.removeItem("openfoto:prueba");
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  const usaLocal = disponible();
+
   function leer(clave, porDefecto) {
     try {
-      const bruto = localStorage.getItem(clave);
+      const bruto = usaLocal ? localStorage.getItem(clave) : memoria[clave];
       return bruto ? JSON.parse(bruto) : porDefecto;
     } catch {
       return porDefecto;
@@ -26,7 +43,16 @@ const ALMACEN = (() => {
   }
 
   function escribir(clave, valor) {
-    localStorage.setItem(clave, JSON.stringify(valor));
+    const bruto = JSON.stringify(valor);
+    if (usaLocal) {
+      try {
+        localStorage.setItem(clave, bruto);
+      } catch {
+        memoria[clave] = bruto; // cuota llena: respaldo en memoria
+      }
+    } else {
+      memoria[clave] = bruto;
+    }
   }
 
   /* ---------- Tokens de invitación ---------- */

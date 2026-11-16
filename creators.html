@@ -9,7 +9,6 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
     <link href="./src/img/favicon.svg" rel="icon" type="image/svg+xml">
     <title>Creadores — Openfoto</title>
 </head>
@@ -93,10 +92,15 @@
         const fotografos = cargarFotografos();
 
         document.getElementById("resumen-creadores").textContent =
-            `${fotografos.length} fotógrafo${fotografos.length === 1 ? "" : "s"} han contribuido al proyecto hasta hoy.`;
+            fotografos.length === 1
+                ? "1 fotógrafo ha contribuido al proyecto hasta hoy."
+                : `${fotografos.length} fotógrafos han contribuido al proyecto hasta hoy.`;
 
-        document.getElementById("grid-creadores").innerHTML =
-            fotografos.map(tarjetaCreador).join("");
+        const grid = document.getElementById("grid-creadores");
+        grid.innerHTML = fotografos.map(tarjetaCreador).join("");
+        if (!fotografos.length) {
+            grid.innerHTML = `<p class="jm-regular-mini text-zinc-400 col-span-full">Todavía no hay creadores publicados. Vuelve pronto.</p>`;
+        }
     });
 </script>
 </body>

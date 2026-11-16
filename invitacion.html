@@ -9,7 +9,6 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
     <link href="./src/img/favicon.svg" rel="icon" type="image/svg+xml">
     <title>Invitación — Openfoto</title>
 </head>
@@ -184,7 +183,7 @@
 
                     <div>
                         <label class="block jm-regular-mini text-zinc-400 mb-1" for="fotos">Selecciona hasta 6 fotos (JPG o PNG)</label>
-                        <input accept="image/jpeg,image/png,image/webp" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 jm-regular-mini text-zinc-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-amber-600 file:text-zinc-50 hover:file:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                        <input accept="image/jpeg,image/png,image/webp" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 jm-regular-mini text-zinc-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-amber-600 file:text-zinc-950 hover:file:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-600"
                                id="fotos" multiple name="fotos" type="file">
                         <p class="jm-regular-mini text-zinc-400 mt-2">Se optimizan automáticamente en tu dispositivo antes de enviarse.</p>
                         <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mt-3" id="vista-previa"></div>
@@ -196,7 +195,7 @@
                     * Campos obligatorios. Al enviar, tu colección queda en revisión del equipo curador.
                 </p>
 
-                <button class="w-full sm:w-auto inline-block rounded-lg bg-amber-600 px-8 py-3 text-center jm-regular text-zinc-50 hover:bg-amber-500 transition disabled:opacity-50"
+                <button class="w-full sm:w-auto inline-block rounded-lg bg-amber-600 px-8 py-3 text-center jm-bold text-zinc-950 hover:bg-amber-500 transition disabled:opacity-50"
                         id="boton-enviar" type="submit">
                     Enviar para revisión
                 </button>

@@ -10,7 +10,6 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
     <link href="./src/img/favicon.svg" rel="icon" type="image/svg+xml">
     <title>Panel del curador — Openfoto</title>
 </head>
@@ -73,7 +72,7 @@
             <p class="jm-regular-mini text-zinc-400 mb-4">
                 Envía este enlace al fotógrafo invitado: abre el formulario y solo se puede usar una vez.
             </p>
-            <button class="rounded-lg bg-amber-600 px-6 py-2.5 jm-regular text-zinc-50 hover:bg-amber-500 transition"
+            <button class="rounded-lg bg-amber-600 px-6 py-2.5 jm-bold text-zinc-950 hover:bg-amber-500 transition"
                     id="boton-generar" type="button">Generar invitación</button>
             <div class="mt-4" id="zona-enlace" hidden>
                 <label class="block jm-regular-mini text-zinc-400 mb-1" for="enlace">Enlace para el fotógrafo</label>
@@ -129,7 +128,10 @@
     /* ---------- Generar invitación ---------- */
     document.getElementById("boton-generar").addEventListener("click", () => {
         const token = ALMACEN.generarToken();
-        const enlace = `${location.origin}${location.pathname.replace("panel.html", "")}invitacion.html?token=${encodeURIComponent(token)}`;
+        // Base relativa al panel: funciona igual servido por HTTP que abierto
+        // como archivo local (file://), sin depender de location.origin.
+        const base = location.href.replace(/panel\.html.*$/, "");
+        const enlace = `${base}invitacion.html?token=${encodeURIComponent(token)}`;
         document.getElementById("enlace").value = enlace;
         document.getElementById("zona-enlace").hidden = false;
         renderInvitaciones();
@@ -174,7 +176,7 @@
                     ${(envio.fotos || []).map(src => `<img alt="Foto del envío" class="h-20 w-full object-cover rounded-lg" loading="lazy" src="${esc(src)}">`).join("")}
                 </div>
                 <div class="flex gap-2 mt-4">
-                    <button class="rounded-lg bg-amber-600 px-4 py-2 jm-regular-mini text-zinc-50 hover:bg-amber-500 transition"
+                    <button class="rounded-lg bg-amber-600 px-4 py-2 jm-bold text-zinc-950 hover:bg-amber-500 transition"
                             onclick="aprobar('${esc(envio.id)}')">Aprobar y publicar</button>
                     <button class="rounded-lg border border-zinc-500 px-4 py-2 jm-regular-mini text-zinc-400 hover:text-zinc-100 hover:ring-1 hover:ring-zinc-300 transition"
                             onclick="rechazar('${esc(envio.id)}')">Rechazar</button>
