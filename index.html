@@ -128,12 +128,15 @@
         });
         grid.innerHTML = tarjetas.join("");
 
-        // Franjas de detalle con las dos primeras colecciones
-        const planas = fotografos.flatMap(a => a.colecciones.map(c => ({ col: c, autor: a })));
+        // Franjas de detalle: destacamos "Un día a la vez" (como en el diseño
+        // original) y la siguiente colección publicada
+        const destacadas = ["un-dia-a-la-vez", "10-dias"]
+            .map(id => INDICE_COLECCIONES[id])
+            .filter(Boolean);
         const b1 = document.getElementById("bloque-historia-1");
         const b2 = document.getElementById("bloque-historia-2");
-        if (planas[0]) b1.innerHTML = bloqueHistoria(planas[0].col, planas[0].autor);
-        if (planas[1]) b2.innerHTML = bloqueHistoria(planas[1].col, planas[1].autor);
+        if (destacadas[0]) b1.innerHTML = bloqueHistoria(destacadas[0].coleccion, destacadas[0].autor);
+        if (destacadas[1]) b2.innerHTML = bloqueHistoria(destacadas[1].coleccion, destacadas[1].autor);
     });
 </script>
 </body>

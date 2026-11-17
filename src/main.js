@@ -129,13 +129,17 @@ function tarjetaColeccion(col, autor) {
     </button>`;
 }
 
-// Bloque ancho de "historias" (la franja que ya existía en el índice)
-function bloqueHistoria(col, autor, idModalOscuro) {
-  const fotos = col.fotos.length ? col.fotos : [col.portada];
-  const celdas = fotos.slice(0, 4).map((src, i) => `
-    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80 shadow-zinc-800">
+// Bloque ancho de "historias" (la franja que ya existía en el índice),
+// con el mismo patrón de mosaico del diseño: 2 columnas, 1, 1, 2…
+function bloqueHistoria(col, autor) {
+  const fotos = (col.fotos.length ? col.fotos : [col.portada]).slice(0, 4);
+  const celdas = fotos.map((src, i) => {
+    const ancho = (i % 4 === 0 || i % 4 === 3) ? "md:col-span-2" : "";
+    return `
+    <div class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg ${ancho} md:h-80 shadow-zinc-800">
       <img alt="${esc(col.titulo)} — foto ${i + 1}" class="absolute inset-0 h-full w-full object-cover object-center" loading="lazy" decoding="async" src="${esc(src)}">
-    </div>`).join("");
+    </div>`;
+  }).join("");
 
   return `
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">

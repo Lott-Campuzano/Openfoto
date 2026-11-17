@@ -36,6 +36,21 @@ const OPENFOTO = {
             "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000",
             "https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"
           ]
+        },
+        {
+          id: "un-dia-a-la-vez",
+          titulo: "Un día a la vez",
+          anio: 2024,
+          narrativa: "Todos los días cruzamos las mismas calles y los mismos lugares, irónicamente decimos que \"todo ha cambiado\". Esta serie es un ejercicio de atención: volver una y otra vez al mismo punto, a distinta hora, hasta que lo cotidiano se revela distinto y la ciudad empieza a contar lo que nadie mira.",
+          tecnica: "Fotografía de calle en serie: la misma esquina fotografiada a distintas horas y días, siempre con el mismo encuadre en 35 mm. Luz natural, sin retoque de color.",
+          inspiracion: "La costumbre de pasar de largo. Quise demostrar que ningún día es igual al anterior aunque el mapa diga lo contrario.",
+          portada: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000",
+          fotos: [
+            "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000",
+            "https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000",
+            "https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000",
+            "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"
+          ]
         }
       ]
     },
