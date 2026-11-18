@@ -1,10 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Los fotógrafos independientes que contribuyen a Openfoto: contacto, biografía y colecciones de cada autor." name="description">
+    <link href="./src/stylesTW.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="./src/img/favicon.svg" rel="icon" type="image/svg+xml">
+    <title>Creadores — Openfoto</title>
 </head>
-<body>
+<body class="bg-zinc-900">
+<header>
+    <nav aria-label="Navegación principal" class="bg-zinc-900/60 backdrop-blur-sm py-2.5 z-50 fixed -top-1 right-0 left-0">
+        <div class="flex items-center justify-between max-w-screen-xl px-4 mx-auto">
+            <a class="flex items-center" href="./index.html">
+                <span class="text-xl font-semibold whitespace-nowrap text-zinc-50 ns-bold">Openfoto</span>
+            </a>
 
+            <div class="hidden lg:flex lg:space-x-8">
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./collections.html">Colecciones</a>
+                <a aria-current="page" class="block py-2 text-zinc-100 hover:text-yellow-600 jm-regular" href="./creators.html">Creadores</a>
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+            </div>
+
+            <button aria-controls="mobile-menu" aria-expanded="false"
+                    aria-label="Abrir menú de navegación"
+                    class="lg:hidden inline-flex items-center p-2 text-sm text-zinc-400 hover:text-amber-500 rounded-lg focus:ring-2 focus:ring-zinc-600"
+                    id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" id="menu-icon" stroke="currentColor" stroke-width="1.5"
+                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="none" id="close-icon" stroke="currentColor"
+                     stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hidden flex flex-col items-start px-4 py-4" id="mobile-menu">
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./collections.html">Colecciones</a>
+            <a class="block py-2 text-zinc-100 hover:text-yellow-600 jm-regular" href="./creators.html">Creadores</a>
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-24 pb-16">
+    <section class="px-6">
+        <div class="container mx-auto">
+            <h1 class="text-3xl ns-bold text-zinc-50 sm:text-4xl lg:text-5xl">
+                Los fotógrafos detrás
+                <span class="block w-full ns-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-amber-600 to-red-700 lg:inline">
+                de cada historia.
+            </span>
+            </h1>
+            <p class="jm-regular-mini text-zinc-400 max-w-screen-sm mt-4" id="resumen-creadores"></p>
+            <br>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2" id="grid-creadores"></div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-zinc-800 py-6 sm:py-12 text-center text-zinc-50">
+    <p class="jm-regular">Hecho con ❤️ por @Lott_Campuzano.</p>
+    <nav aria-label="Enlaces del pie" class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 jm-regular-mini">
+        <a class="text-zinc-400 hover:text-yellow-600" href="./index.html">Inicio</a>
+        <a class="text-zinc-400 hover:text-yellow-600" href="./collections.html">Colecciones</a>
+        <a class="text-zinc-400 hover:text-yellow-600" href="./us.html">Nosotros</a>
+        <a class="text-zinc-400 hover:text-yellow-600" href="./invitacion.html">¿Tienes invitación? Publica tu colección</a>
+    </nav>
+</footer>
+
+<!-- Modal compartido de Openfoto -->
+<div aria-modal="true" class="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm hidden items-center justify-center z-50 overflow-y-auto py-10"
+     id="openfoto-modal" role="dialog">
+    <div class="bg-zinc-800 p-6 rounded-lg max-w-4xl w-full mx-auto text-left shadow-2xl shadow-zinc-300/50"
+         id="openfoto-modal-contenido"></div>
+</div>
+
+<script src="./src/data.js"></script>
+<script src="./src/store.js"></script>
+<script src="./src/main.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fotografos = cargarFotografos();
+
+        document.getElementById("resumen-creadores").textContent =
+            fotografos.length === 1
+                ? "1 fotógrafo ha contribuido al proyecto hasta hoy."
+                : `${fotografos.length} fotógrafos han contribuido al proyecto hasta hoy.`;
+
+        const grid = document.getElementById("grid-creadores");
+        grid.innerHTML = fotografos.map(tarjetaCreador).join("");
+        if (!fotografos.length) {
+            grid.innerHTML = `<p class="jm-regular-mini text-zinc-400 col-span-full">Todavía no hay creadores publicados. Vuelve pronto.</p>`;
+        }
+    });
+</script>
 </body>
 </html>

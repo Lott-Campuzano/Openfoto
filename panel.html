@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Panel interno del curador de Openfoto: invitaciones, envíos y publicación de colecciones." name="description">
+    <meta name="robots" content="noindex">
+    <link href="./src/stylesTW.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="./src/img/favicon.svg" rel="icon" type="image/svg+xml">
+    <title>Panel del curador — Openfoto</title>
+</head>
+<body class="bg-zinc-900">
+<header>
+    <nav aria-label="Navegación principal" class="bg-zinc-900/60 backdrop-blur-sm py-2.5 z-50 fixed -top-1 right-0 left-0">
+        <div class="flex items-center justify-between max-w-screen-xl px-4 mx-auto">
+            <a class="flex items-center" href="./index.html">
+                <span class="text-xl font-semibold whitespace-nowrap text-zinc-50 ns-bold">Openfoto</span>
+            </a>
+
+            <div class="hidden lg:flex lg:space-x-8">
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./collections.html">Colecciones</a>
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./creators.html">Creadores</a>
+                <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+            </div>
+
+            <button aria-controls="mobile-menu" aria-expanded="false"
+                    aria-label="Abrir menú de navegación"
+                    class="lg:hidden inline-flex items-center p-2 text-sm text-zinc-400 hover:text-amber-500 rounded-lg focus:ring-2 focus:ring-zinc-600"
+                    id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" id="menu-icon" stroke="currentColor" stroke-width="1.5"
+                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="none" id="close-icon" stroke="currentColor"
+                     stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hidden flex flex-col items-start px-4 py-4" id="mobile-menu">
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./collections.html">Colecciones</a>
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./creators.html">Creadores</a>
+            <a class="block py-2 text-zinc-400 hover:text-yellow-600 jm-regular" href="./us.html">Nosotros</a>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-24 pb-16 px-6">
+    <div class="container mx-auto max-w-screen-md">
+
+        <h1 class="text-3xl ns-bold text-zinc-50 sm:text-4xl">
+            Panel del curador
+            <span class="block w-full ns-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-amber-600 to-red-700 lg:inline">
+            invitaciones y envíos.
+        </span>
+        </h1>
+        <p class="jm-regular-mini text-zinc-400 mt-4">
+            Mientras Openfoto no tiene base de datos, este panel guarda invitaciones, envíos y
+            aprobaciones en el almacenamiento local de este navegador.
+            Para publicar de forma permanente, exporta el JSON y pégalo en <span class="text-amber-600">src/data.js</span>.
+        </p>
+
+        <!-- Generar invitación -->
+        <section class="rounded-lg bg-zinc-800 p-6 shadow-lg shadow-zinc-950/50 mt-10">
+            <h2 class="text-2xl ns-bold text-zinc-50 mb-3">Generar enlace de invitación</h2>
+            <p class="jm-regular-mini text-zinc-400 mb-4">
+                Envía este enlace al fotógrafo invitado: abre el formulario y solo se puede usar una vez.
+            </p>
+            <button class="rounded-lg bg-amber-600 px-6 py-2.5 jm-bold text-zinc-950 hover:bg-amber-500 transition"
+                    id="boton-generar" type="button">Generar invitación</button>
+            <div class="mt-4" id="zona-enlace" hidden>
+                <label class="block jm-regular-mini text-zinc-400 mb-1" for="enlace">Enlace para el fotógrafo</label>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 jm-regular-mini text-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                           id="enlace" readonly type="text">
+                    <button class="rounded-lg border border-zinc-500 px-4 py-2.5 jm-regular-mini text-zinc-300 hover:text-zinc-100 hover:ring-1 hover:ring-zinc-300 transition"
+                            id="boton-copiar" type="button">Copiar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Invitaciones -->
+        <section class="rounded-lg bg-zinc-800 p-6 shadow-lg shadow-zinc-950/50 mt-6">
+            <h2 class="text-2xl ns-bold text-zinc-50 mb-3">Invitaciones</h2>
+            <ul class="space-y-2 jm-regular-mini text-zinc-300" id="lista-invitaciones"></ul>
+        </section>
+
+        <!-- Envíos pendientes -->
+        <section class="rounded-lg bg-zinc-800 p-6 shadow-lg shadow-zinc-950/50 mt-6">
+            <h2 class="text-2xl ns-bold text-zinc-50 mb-3">Envíos pendientes de revisión</h2>
+            <p class="jm-regular-mini text-zinc-400 mb-4" id="contador-pendientes"></p>
+            <div class="space-y-4" id="lista-pendientes"></div>
+        </section>
+
+        <!-- Exportar -->
+        <section class="rounded-lg bg-zinc-800 p-6 shadow-lg shadow-zinc-950/50 mt-6">
+            <h2 class="text-2xl ns-bold text-zinc-50 mb-3">Exportar publicadas</h2>
+            <p class="jm-regular-mini text-zinc-400 mb-4">
+                Descarga las colecciones aprobadas y añádelas al arreglo <span class="text-amber-600">fotografos</span> de
+                <span class="text-amber-600">src/data.js</span> para que se publiquen en el sitio para todos.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <button class="rounded-lg border border-zinc-500 px-4 py-2 jm-regular-mini text-zinc-300 hover:text-zinc-100 hover:ring-1 hover:ring-zinc-300 transition"
+                        id="boton-exportar" type="button">Descargar JSON</button>
+                <button class="rounded-lg border border-zinc-500 px-4 py-2 jm-regular-mini text-zinc-300 hover:text-zinc-100 hover:ring-1 hover:ring-zinc-300 transition"
+                        id="boton-copiar-json" type="button">Copiar JSON</button>
+            </div>
+            <textarea class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 jm-regular-mini text-zinc-300 mt-4 h-48 focus:outline-none"
+                      id="salida-json" readonly hidden></textarea>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-zinc-800 py-6 sm:py-12 text-center text-zinc-50">
+    <p class="jm-regular">Hecho con ❤️ por @Lott_Campuzano.</p>
+</footer>
+
+<script src="./src/data.js"></script>
+<script src="./src/store.js"></script>
+<script src="./src/main.js"></script>
+<script>
+    /* ---------- Generar invitación ---------- */
+    document.getElementById("boton-generar").addEventListener("click", () => {
+        const token = ALMACEN.generarToken();
+        // Base relativa al panel: funciona igual servido por HTTP que abierto
+        // como archivo local (file://), sin depender de location.origin.
+        const base = location.href.replace(/panel\.html.*$/, "");
+        const enlace = `${base}invitacion.html?token=${encodeURIComponent(token)}`;
+        document.getElementById("enlace").value = enlace;
+        document.getElementById("zona-enlace").hidden = false;
+        renderInvitaciones();
+    });
+
+    document.getElementById("boton-copiar").addEventListener("click", async (e) => {
+        await copiar(document.getElementById("enlace").value, e.target, "¡Copiado!");
+    });
+
+    /* ---------- Lista de invitaciones ---------- */
+    function renderInvitaciones() {
+        const validas = ALMACEN.tokensValidos();
+        const usados = ALMACEN.tokenUsado;
+        const filas = validas.map(t =>
+            `<li class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-700 pb-2">
+                <span class="text-zinc-50">${esc(t.token)}</span>
+                <span class="text-zinc-400">${esc(t.origen)} · ${usados(t.token) ? "usada" : "disponible"}</span>
+            </li>`).join("");
+        document.getElementById("lista-invitaciones").innerHTML =
+            filas || `<li class="text-zinc-400">Todavía no hay invitaciones. Genera la primera arriba.</li>`;
+    }
+
+    /* ---------- Envíos pendientes ---------- */
+    function renderPendientes() {
+        const pendientes = ALMACEN.pendientes();
+        const zona = document.getElementById("lista-pendientes");
+        document.getElementById("contador-pendientes").textContent =
+            `${pendientes.length} envío${pendientes.length === 1 ? "" : "s"} esperando revisión.`;
+
+        zona.innerHTML = pendientes.map(envio => `
+            <article class="rounded-lg bg-zinc-900 border border-zinc-700 p-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 class="ns-bold text-zinc-50 text-lg">${esc(envio.titulo)}</h3>
+                    <span class="jm-regular-mini text-amber-600">${esc(envio.nombre)}${envio.anio ? ` · ${esc(envio.anio)}` : ""}</span>
+                </div>
+                <p class="jm-regular-mini text-zinc-400 mt-1">${esc(envio.email)}${envio.instagram ? ` · @${esc(envio.instagram)}` : ""}${envio.web ? ` · ${esc(envio.web)}` : ""}</p>
+                <p class="ns-light text-zinc-300 text-sm mt-2">${esc(envio.narrativa)}</p>
+                <p class="jm-regular-mini text-zinc-400 mt-2"><strong class="text-zinc-50">Técnica:</strong> ${esc(envio.tecnica)}</p>
+                <p class="jm-regular-mini text-zinc-400 mt-1"><strong class="text-zinc-50">Inspiración:</strong> ${esc(envio.inspiracion)}</p>
+                ${envio.bio ? `<p class="jm-regular-mini text-zinc-400 mt-1"><strong class="text-zinc-50">Bio:</strong> ${esc(envio.bio)}</p>` : ""}
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mt-3">
+                    ${(envio.fotos || []).map(src => `<img alt="Foto del envío" class="h-20 w-full object-cover rounded-lg" loading="lazy" src="${esc(src)}">`).join("")}
+                </div>
+                <div class="flex gap-2 mt-4">
+                    <button class="rounded-lg bg-amber-600 px-4 py-2 jm-bold text-zinc-950 hover:bg-amber-500 transition"
+                            onclick="aprobar('${esc(envio.id)}')">Aprobar y publicar</button>
+                    <button class="rounded-lg border border-zinc-500 px-4 py-2 jm-regular-mini text-zinc-400 hover:text-zinc-100 hover:ring-1 hover:ring-zinc-300 transition"
+                            onclick="rechazar('${esc(envio.id)}')">Rechazar</button>
+                </div>
+            </article>`).join("") || `<p class="jm-regular-mini text-zinc-400">Sin envíos por ahora.</p>`;
+    }
+
+    function aprobar(id) {
+        ALMACEN.aprobarEnvio(id);
+        renderPendientes();
+        renderInvitaciones();
+    }
+
+    function rechazar(id) {
+        ALMACEN.rechazarEnvio(id);
+        renderPendientes();
+    }
+
+    /* ---------- Exportación a data.js ---------- */
+    function jsonPublicadas() {
+        return JSON.stringify(ALMACEN.publicados(), null, 2);
+    }
+
+    document.getElementById("boton-exportar").addEventListener("click", () => {
+        const blob = new Blob([jsonPublicadas()], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "openfoto-publicaciones.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById("boton-copiar-json").addEventListener("click", async (e) => {
+        const salida = document.getElementById("salida-json");
+        salida.hidden = false;
+        salida.value = jsonPublicadas();
+        await copiar(salida.value, e.target, "¡Copiado!");
+    });
+
+    async function copiar(texto, boton, aviso) {
+        try {
+            await navigator.clipboard.writeText(texto);
+        } catch {
+            /* sin permiso de portapapeles: el usuario puede copiar a mano */
+        }
+        const original = boton.textContent;
+        boton.textContent = aviso;
+        setTimeout(() => { boton.textContent = original; }, 1500);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderInvitaciones();
+        renderPendientes();
+    });
+</script>
+</body>
+</html>
