@@ -63,7 +63,7 @@ Mientras no exista backend, todo vive en dos capas:
     ├── main.js              # UI compartida: nav, modales, tarjetas
     ├── styles.css           # fuente de estilos (Tailwind v4)
     ├── stylesTW.css         # estilos compilados (build completo, sin CDN)
-    └── img/                 # fotografías y favicon
+    └── img/                 # fotografías optimizadas (máx. 1600 px) y favicon
 ```
 
 ## Stack
